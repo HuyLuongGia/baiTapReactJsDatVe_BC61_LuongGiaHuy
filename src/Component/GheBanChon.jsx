@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 
 const GheBanChon = () => {
-    const { soGhe, giaGhe } = useSelector((state) => {
+    const { dataGheChon } = useSelector((state) => {
         return state.gheNgoi;
     });
-    console.log(soGhe, giaGhe);
+    // console.log(dataGheChon);
+    for (let val of dataGheChon) {
+        console.log(val);
+    }
     return (
         <div className="mt-7 ">
             <h2 className=" text-5xl text-white mb-4">
@@ -39,16 +42,23 @@ const GheBanChon = () => {
                         </tr>
                     </thead>
                     <tbody className="border border-gray-500 ">
-                        <tr className="border-b ">
-                            <th
-                                scope="row"
-                                className="px-6 py-4 font-medium text-white whitespace-nowrap "
-                            >
-                                {soGhe}
-                            </th>
-                            <td className="px-6 py-4 text-white">1{giaGhe}</td>
-                            <td className="px-6 py-4 text-white">x</td>
-                        </tr>
+                        {dataGheChon.map((item, index) => {
+                            return (
+                                <tr className="border-b" key={index}>
+                                    <th
+                                        scope="row"
+                                        className="px-6 py-4 font-medium text-white whitespace-nowrap "
+                                    >
+                                        {item.soGhe}
+                                    </th>
+                                    <td className="px-6 py-4 text-white">
+                                        {item.gia}
+                                    </td>
+                                    <td className="px-6 py-4 text-white">x</td>
+                                </tr>
+                            );
+                        })}
+
                         <tr></tr>
                     </tbody>
                 </table>

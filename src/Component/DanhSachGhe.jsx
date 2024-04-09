@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { chonGhe } from "../redux/slice/gheNgoi";
+import { useEffect } from "react";
 
 const DanhSachGhe = () => {
     let { arrGhe } = useSelector((state) => {

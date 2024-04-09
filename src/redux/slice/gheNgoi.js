@@ -192,6 +192,7 @@ const initialState = {
     ],
     soGhe: "",
     giaGhe: "",
+    dataGheChon: [],
 };
 
 const gheNgoi = createSlice({
@@ -199,9 +200,10 @@ const gheNgoi = createSlice({
     initialState,
     reducers: {
         chonGhe: (state, action) => {
-            // console.log(action)
-            state.soGhe = action.payload.soGhe;
-            state.giaGhe = action.payload.gia;
+            state.dataGheChon.push(action.payload);
+            // for (let val of state.dataGheChon) {
+            //     console.log(val);
+            // }
         },
     },
 });
